@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import mongoose, { Model } from 'mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './schemas/user.schema';
 import { AuthService } from '@app/core/auth/auth.service';
@@ -28,7 +28,7 @@ export class UserService {
   }
 
   findAll(): Promise<User[]> {
-    return this.authModel.find().exec();
+    return this.authModel.find().populate(['orders']).exec();
   }
 
   findOneByEmail(email: string) {
@@ -36,6 +36,24 @@ export class UserService {
       .findOne({
         email,
       })
+      .exec();
+  }
+
+  pushOrder(
+    userId: string | mongoose.Types.ObjectId,
+    orderId: string | mongoose.Types.ObjectId,
+  ) {
+    return this.authModel
+      .updateOne(
+        {
+          _id: userId,
+        },
+        {
+          $push: {
+            orders: orderId,
+          },
+        },
+      )
       .exec();
   }
 }

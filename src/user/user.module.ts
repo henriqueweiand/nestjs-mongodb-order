@@ -11,5 +11,6 @@ import { AuthService } from '@app/core/auth/auth.service';
   ],
   controllers: [UserController],
   providers: [AuthService, UserService],
+  exports: [UserService],
 })
 export class UserModule {}

@@ -2,14 +2,22 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, UpdateQuery } from 'mongoose';
 import { Order, OrderDocument } from './schemas/order.schema';
+import { UserService } from '@app/user/user.service';
 
 @Injectable()
 export class OrderService {
-  constructor(@InjectModel(Order.name) private orderModel: Model<Order>) {}
+  constructor(
+    @InjectModel(Order.name) private orderModel: Model<Order>,
+    private userService: UserService,
+  ) {}
 
-  create({ total, products, user }): Promise<Order> {
+  async create({ total, products, user }): Promise<Order> {
     const createdOrder = new this.orderModel({ total, products, user });
-    return createdOrder.save();
+    const savedOrder = await createdOrder.save();
+
+    await this.userService.pushOrder(user, savedOrder._id);
+
+    return savedOrder;
   }
 
   findAll(): Promise<Order[]> {

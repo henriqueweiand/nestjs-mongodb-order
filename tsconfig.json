@@ -37,6 +37,12 @@
       "@app/product/*": [
         "src/product/*"
       ],
+      "@app/user": [
+        "src/user"
+      ],
+      "@app/user/*": [
+        "src/user/*"
+      ],
     }
   }
 }
