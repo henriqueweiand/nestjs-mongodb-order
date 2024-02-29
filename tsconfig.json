@@ -31,6 +31,12 @@
       "@app/order/*": [
         "src/order/*"
       ],
+      "@app/product": [
+        "src/product"
+      ],
+      "@app/product/*": [
+        "src/product/*"
+      ],
     }
   }
 }
