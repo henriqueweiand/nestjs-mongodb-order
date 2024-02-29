@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Order, OrderSchema } from '@app/order/schemas/order.schema';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
@@ -12,7 +11,6 @@ import { Order, OrderSchema } from '@app/order/schemas/order.schema';
       }),
       inject: [ConfigService],
     }),
-    MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
   ],
   providers: [],
   exports: [],
