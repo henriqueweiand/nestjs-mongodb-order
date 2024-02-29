@@ -8,7 +8,7 @@ Exercise using MongoDB, NestJS, JWT. This is a simple aplication that some endpo
 -   [x] Auth module
 -   [x] Guards module
 -   [x] FindMany with Filters
--   [ ] Tests
+-   [x] 1 example unit and 1 e2e tests
 -   [ ] Returns any data using lookup
 -   [ ] Diagram of the solution
 -   [ ] Hash for the password
