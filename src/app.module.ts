@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
@@ -7,6 +7,7 @@ import { OrderModule } from './order/order.module';
 import { ProductModule } from './product/product.module';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { AuthModule } from './core/auth/auth.module';
+import { AuditOrdersMiddleware } from '@app/core/middleware/audit-orders.middleware';
 
 @Module({
     imports: [
@@ -26,4 +27,8 @@ import { AuthModule } from './core/auth/auth.module';
     ],
     providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(AuditOrdersMiddleware).forRoutes('order');
+    }
+}

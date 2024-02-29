@@ -12,6 +12,7 @@ Exercise using MongoDB, NestJS, JWT, Jest. This is a simple aplication that some
 -   [x] 1 example unit and 1 e2e tests
 -   [x] Diagram of the solution
 -   [x] Github actions to run all the tests
+-   [x] Middleware to audit all order creation
 
 ## Running locally
 
