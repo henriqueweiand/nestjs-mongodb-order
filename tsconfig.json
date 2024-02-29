@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "lib": ["ES2023"],
+    "module": "node16",
+    "target": "ES2022",
+    "paths": {
+      "@app/core": [
+        "src/core"
+      ],
+      "@app/core/*": [
+        "src/core/*"
+      ],
+      "@app/order": [
+        "src/order"
+      ],
+      "@app/order/*": [
+        "src/order/*"
+      ],
+    }
+  }
+}
