@@ -6,12 +6,11 @@ Exercise using MongoDB, NestJS, JWT. This is a simple aplication that some endpo
 -   [x] Product module
 -   [x] Order module
 -   [x] Auth module
+-   [x] Create indexes
 -   [x] Guards module
 -   [x] FindMany with Filters
 -   [x] 1 example unit and 1 e2e tests
--   [ ] Returns any data using lookup
--   [ ] Diagram of the solution
--   [ ] Hash for the password
+-   [x] Diagram of the solution
 
 ## Running locally
 
@@ -21,9 +20,9 @@ Exercise using MongoDB, NestJS, JWT. This is a simple aplication that some endpo
 4. run `yarn start:dev`
 5. Access `http://localhost:3000/api`
 
-## Diagram of the solution
+## Modules and relations
 
-WIP
+![Preview](https://github.com/henriqueweiand/nestjs-mongodb-order/blob/master/assets/modules-view.png)
 
 ## Swagger
 
