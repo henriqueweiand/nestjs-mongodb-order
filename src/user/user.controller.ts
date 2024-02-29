@@ -7,20 +7,20 @@ import { PaginationQueryDto } from '@app/core/common/dto/pagination-query.dto';
 @Controller('user')
 @ApiTags('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+    constructor(private readonly userService: UserService) {}
 
-  @Post('signup')
-  signup(@Body() createUserDto: CreateUserDto) {
-    return this.userService.signup(createUserDto);
-  }
+    @Post('signup')
+    signup(@Body() createUserDto: CreateUserDto) {
+        return this.userService.signup(createUserDto);
+    }
 
-  @Post('signin')
-  signin(@Body() createUserDto: CreateUserDto) {
-    return this.userService.signin(createUserDto);
-  }
+    @Post('signin')
+    signin(@Body() createUserDto: CreateUserDto) {
+        return this.userService.signin(createUserDto);
+    }
 
-  @Get('')
-  findAll(@Query() paginationQuery: PaginationQueryDto) {
-    return this.userService.findAll(paginationQuery);
-  }
+    @Get('')
+    findAll(@Query() paginationQuery: PaginationQueryDto) {
+        return this.userService.findAll(paginationQuery);
+    }
 }

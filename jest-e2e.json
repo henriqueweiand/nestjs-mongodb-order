@@ -1,9 +1,21 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
-  "rootDir": "./src/",
+  "rootDir": ".",
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s?$": ["@swc/jest"]
+  },
+  "moduleNameMapper": {
+    "@app/core/(.*)": "<rootDir>/src/core/$1",
+    "@app/core": "<rootDir>/src/core",
+    "@app/order/(.*)": "<rootDir>/src/order/$1",
+    "@app/order": "<rootDir>/src/order",
+    "@app/product/(.*)": "<rootDir>/src/product/$1",
+    "@app/product": "<rootDir>/src/product",
+    "@app/user/(.*)": "<rootDir>/src/user/$1",
+    "@app/user": "<rootDir>/src/user",
+    "@app/(.*)": "<rootDir>/src/$1",
+    "@app/": "<rootDir>/src/"
   }
 }

@@ -9,19 +9,21 @@ import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { AuthModule } from './core/auth/auth.module';
 
 @Module({
-  imports: [
-    DevtoolsModule.register({
-      http: process.env.NODE_ENV !== 'production',
-    }),
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    AuthModule,
-    DatabaseModule,
-    UserModule,
-    OrderModule,
-    ProductModule,
-  ],
-  providers: [AppService],
+    imports: [
+        DevtoolsModule.register({
+            http: process.env.NODE_ENV !== 'production',
+        }),
+        ConfigModule.forRoot({
+            isGlobal: true,
+            envFilePath:
+                process.env.NODE_ENV == 'test' ? '.env.example' : '.env',
+        }),
+        AuthModule,
+        DatabaseModule,
+        UserModule,
+        OrderModule,
+        ProductModule,
+    ],
+    providers: [AppService],
 })
 export class AppModule {}

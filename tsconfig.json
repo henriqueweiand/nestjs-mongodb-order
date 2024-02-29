@@ -20,6 +20,12 @@
     "module": "node16",
     "target": "ES2022",
     "paths": {
+        "@app": [
+            "src"
+        ],
+        "@app/*": [
+            "src/*"
+          ],
       "@app/core": [
         "src/core"
       ],
