@@ -11,6 +11,7 @@ Exercise using MongoDB, NestJS, JWT. This is a simple aplication that some endpo
 -   [x] FindMany with Filters
 -   [x] 1 example unit and 1 e2e tests
 -   [x] Diagram of the solution
+-   [x] Github actions to run all the tests
 
 ## Running locally
 
