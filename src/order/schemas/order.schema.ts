@@ -11,11 +11,13 @@ export class Order {
   @Prop()
   total: number;
 
-  @Prop()
+  @Prop({ index: true })
   user: string;
 
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }] })
   products: Product[];
 }
 
-export const OrderSchema = SchemaFactory.createForClass(Order);
+const OrderSchema = SchemaFactory.createForClass(Order);
+
+export { OrderSchema };

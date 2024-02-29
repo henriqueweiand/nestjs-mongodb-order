@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, UpdateQuery } from 'mongoose';
 import { Order, OrderDocument } from './schemas/order.schema';
 import { UserService } from '@app/user/user.service';
+import { PaginationQueryDto } from '@app/core/common/dto/pagination-query.dto';
 
 @Injectable()
 export class OrderService {
@@ -20,8 +21,15 @@ export class OrderService {
     return savedOrder;
   }
 
-  findAll(): Promise<Order[]> {
-    return this.orderModel.find().populate(['products']).exec();
+  findAll(paginationQuery: PaginationQueryDto): Promise<Order[]> {
+    const { limit, offset } = paginationQuery;
+
+    return this.orderModel
+      .find()
+      .populate(['products'])
+      .skip(offset)
+      .limit(limit)
+      .exec();
   }
 
   findOne(id: string): Promise<Order> {

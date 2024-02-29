@@ -8,7 +8,7 @@ export type UserDocument = HydratedDocument<User>;
 export class User {
   _id: mongoose.Types.ObjectId;
 
-  @Prop()
+  @Prop({ index: true, unique: true })
   email: string;
 
   @Prop()
@@ -18,4 +18,6 @@ export class User {
   orders: Order[];
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+const UserSchema = SchemaFactory.createForClass(User);
+
+export { UserSchema };

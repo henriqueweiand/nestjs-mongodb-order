@@ -7,8 +7,10 @@ export type ProductDocument = HydratedDocument<Product>;
 export class Product {
   _id: mongoose.Types.ObjectId;
 
-  @Prop()
+  @Prop({ index: true })
   name: string;
 }
 
-export const ProductSchema = SchemaFactory.createForClass(Product);
+const ProductSchema = SchemaFactory.createForClass(Product);
+
+export { ProductSchema };

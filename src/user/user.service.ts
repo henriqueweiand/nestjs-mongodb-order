@@ -4,6 +4,7 @@ import mongoose, { Model } from 'mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './schemas/user.schema';
 import { AuthService } from '@app/core/auth/auth.service';
+import { PaginationQueryDto } from '@app/core/common/dto/pagination-query.dto';
 
 @Injectable()
 export class UserService {
@@ -27,8 +28,15 @@ export class UserService {
     return this.authService.signin({ email, id: user.id });
   }
 
-  findAll(): Promise<User[]> {
-    return this.authModel.find().populate(['orders']).exec();
+  findAll(paginationQuery: PaginationQueryDto): Promise<User[]> {
+    const { limit, offset } = paginationQuery;
+
+    return this.authModel
+      .find()
+      .populate(['orders'])
+      .skip(offset)
+      .limit(limit)
+      .exec();
   }
 
   findOneByEmail(email: string) {

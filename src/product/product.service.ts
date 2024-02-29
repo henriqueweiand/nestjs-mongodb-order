@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, UpdateQuery } from 'mongoose';
 import { Product, ProductDocument } from './schemas/product.schema';
 import { CreateProductDto } from './dto/create-product.dto';
+import { PaginationQueryDto } from '@app/core/common/dto/pagination-query.dto';
 
 @Injectable()
 export class ProductService {
@@ -15,8 +16,10 @@ export class ProductService {
     return createdProduct.save();
   }
 
-  findAll(): Promise<Product[]> {
-    return this.productModel.find().exec();
+  findAll(paginationQuery: PaginationQueryDto): Promise<Product[]> {
+    const { limit, offset } = paginationQuery;
+
+    return this.productModel.find().skip(offset).limit(limit).exec();
   }
 
   findOne(id: string): Promise<Product> {

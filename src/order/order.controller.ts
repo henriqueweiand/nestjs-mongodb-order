@@ -8,12 +8,14 @@ import {
   Post,
   UseGuards,
   Request,
+  Query,
 } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@app/core/auth/auth.guard';
+import { PaginationQueryDto } from '@app/core/common/dto/pagination-query.dto';
 
 @Controller('order')
 @ApiTags('order')
@@ -28,8 +30,8 @@ export class OrderController {
   }
 
   @Get('')
-  findAll() {
-    return this.orderService.findAll();
+  findAll(@Query() paginationQuery: PaginationQueryDto) {
+    return this.orderService.findAll(paginationQuery);
   }
 
   @Get(':id')
