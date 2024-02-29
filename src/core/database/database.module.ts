@@ -13,6 +13,6 @@ import { MongooseModule } from '@nestjs/mongoose';
     }),
   ],
   providers: [],
-  exports: [],
+  exports: [DatabaseModule],
 })
 export class DatabaseModule {}

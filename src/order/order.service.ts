@@ -2,14 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, UpdateQuery } from 'mongoose';
 import { Order, OrderDocument } from './schemas/order.schema';
-import { CreateOrderDto } from './dto/create-order.dto';
 
 @Injectable()
 export class OrderService {
   constructor(@InjectModel(Order.name) private orderModel: Model<Order>) {}
 
-  create(createOrderDto: CreateOrderDto): Promise<Order> {
-    const createdOrder = new this.orderModel(createOrderDto);
+  create({ total, products, user }): Promise<Order> {
+    const createdOrder = new this.orderModel({ total, products, user });
     return createdOrder.save();
   }
 

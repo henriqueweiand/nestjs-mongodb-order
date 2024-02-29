@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Transform } from 'class-transformer';
+import { Exclude, Transform } from 'class-transformer';
 import { IsNumber, IsOptional } from 'class-validator';
 import mongoose from 'mongoose';
 
@@ -9,8 +9,7 @@ export class UpdateOrderDto {
   @ApiProperty()
   readonly total: number;
 
-  @IsOptional()
-  @ApiProperty()
+  @Exclude()
   readonly user: string;
 
   @IsOptional()

@@ -10,10 +10,6 @@ export class CreateOrderDto {
   readonly total: number;
 
   @IsNotEmpty()
-  @ApiProperty()
-  readonly user: string;
-
-  @IsNotEmpty()
   @ApiProperty({
     isArray: true,
     type: 'string',
