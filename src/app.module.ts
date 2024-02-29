@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 import { OrderModule } from './order/order.module';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './core/database/database.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -11,7 +12,7 @@ import { DatabaseModule } from './core/database/database.module';
     }),
     DatabaseModule,
     OrderModule,
-    OrderModule,
+    ProductModule,
   ],
   providers: [AppService],
 })
