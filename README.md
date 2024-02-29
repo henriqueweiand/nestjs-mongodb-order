@@ -24,4 +24,4 @@ Exercise using MongoDB, NestJS, JWT. This is a simple aplication that some endpo
 
 ## Swagger
 
-![Preview](https://raw.githubusercontent.com/henriqueweiand/nestjs-mongodb-order/master/assets/swagger.png)
+![Preview](https://github.com/henriqueweiand/nestjs-mongodb-order/blob/master/assets/swagger.png)
