@@ -1,6 +1,6 @@
 # nestjs-mongo-orders
 
-Exercise using MongoDB, NestJS, JWT. This is a simple aplication that some endpoints require login and some not, and the user can create products and than create and order that has those products.
+Exercise using MongoDB, NestJS, JWT, Jest. This is a simple aplication that some endpoints require login and some not, and the user can create products and than create and order that has those products.
 
 -   [x] User module
 -   [x] Product module

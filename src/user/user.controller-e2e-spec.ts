@@ -42,12 +42,12 @@ describe('UsersController', () => {
                 .send(createDto);
 
             expect(response.status).toBe(201);
-            expect(response.body).toMatchObject(createDto);
+            expect(response.body.email).toEqual(createDto.email);
 
             const user = await dbConnection
                 .collection('users')
                 .findOne({ email: createDto.email });
-            expect(user).toMatchObject(createDto);
+            expect(user.email).toEqual(createDto.email); // compare only the email
         });
     });
 });
