@@ -1,4 +1,7 @@
-# nestjs-mongo-orders
+# NestJS-Mongo-Orders
+
+[![Run E2E Tests](https://github.com/henriqueweiand/nestjs-mongodb-order/actions/workflows/run-e2e-tests.yml/badge.svg)](https://github.com/henriqueweiand/nestjs-mongodb-order/actions/workflows/run-e2e-tests.yml)
+[![Run Unit Tests](https://github.com/henriqueweiand/nestjs-mongodb-order/actions/workflows/run-unit-tests.yml/badge.svg)](https://github.com/henriqueweiand/nestjs-mongodb-order/actions/workflows/run-unit-tests.yml)
 
 Exercise using MongoDB, NestJS, JWT, Jest. This is a simple aplication that some endpoints require login and some not, and the user can create products and than create and order that has those products.
 
